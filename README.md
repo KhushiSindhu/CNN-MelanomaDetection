@@ -1,6 +1,5 @@
-# Project Name
-> Outline a brief description of your project.
-
+# Melanoma Detection
+> To build a CNN based model which can accurately detect melanoma.
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -8,45 +7,38 @@
 * [Conclusions](#conclusions)
 * [Acknowledgements](#acknowledgements)
 
-<!-- You can include any other section that is pertinent to your problem -->
-
 ## General Information
-- Provide general information about your project here.
-- What is the background of your project?
-- What is the business probem that your project is trying to solve?
-- What is the dataset that is being used?
+Melanoma is a type of cancer that can be deadly if not detected early. It accounts for 75% of skin cancer deaths. A solution that can evaluate images and alert dermatologists about the presence of melanoma has the potential to reduce a lot of manual effort needed in diagnosis.
+- Goal is to To build a custom (Without transfer learning )CNN based model which can accurately detect melanoma.
+- Dataset:
+The dataset consists of 2357 images of malignant and benign oncological diseases, which were formed from the International Skin Imaging Collaboration (ISIC). 
+All images were sorted according to the classification taken with ISIC, and all subsets were divided into the same number of images, with the exception of melanomas and moles, whose images are slightly dominant.
 
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
-
+* The data set contains the following diseases:
+* Actinic keratosis
+* Basal cell carcinoma
+* Dermatofibroma
+* Melanoma
+* Nevus
+* Pigmented benign keratosis
+* Seborrheic keratosis
+* Squamous cell carcinoma
+* Vascular lesion
+## Model Architecture
+![What is this](Model_Architecture.png)
 ## Conclusions
-- Conclusion 1 from the analysis
-- Conclusion 2 from the analysis
-- Conclusion 3 from the analysis
-- Conclusion 4 from the analysis
-
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+- Intial model was built without Batch normalization and dropouts. Difference between train and validation accuracy was very high. 
+- Second model was built with Batch normalization and bias. Model performance increased a bit but the model was overfitting.
+- Third model was built with Batch normalization ,small dropouts at FC layer. The model was  still overfitting.
+- Then we observed high class imbalance in the Model, as the cause of huge overfitting. Augmentation strategy was used to rectify the problem. 
+- We used the augmentor to generate balanced train data for all classes.
+- Class imbalance problem was rectified and model was retrained. 
+- Train accuracy 95% and Validation accuracy 84%
 
 
 ## Technologies Used
-- library - version 1.0
-- library - version 2.0
-- library - version 3.0
-
-<!-- As the libraries versions keep on changing, it is recommended to mention the version of library used in this project -->
+Python, Pandas, Numpy, Matplotlib, PathLib, TensorFlow, Keras, Glob, Augmentor
 
 ## Acknowledgements
 Give credit here.
-- This project was inspired by...
-- References if any...
-- This project was based on [this tutorial](https://www.example.com).
-
-
-## Contact
-Created by [@githubusername] - feel free to contact me!
-
-
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
+- This project was inspired by IIIT, Bangalore and Upgrad, Bangalore.
